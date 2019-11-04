@@ -1,3 +1,7 @@
+# redditMeFrontend
+
+Frontend of redditMe - A self practice project to mimic reddit
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
