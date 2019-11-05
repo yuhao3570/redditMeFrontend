@@ -1,26 +1,60 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect } from 'react';
+import { connect } from 'react-redux';
+import getAllPostsAction from './actions/GetAllPostsAction';
+import Header from './components/Header';
+import PostPreviewer from './components/PostPreviewer';
+import './styles/Header.css';
 
-function App() {
+const styles ={
+  posts: {
+    marginTop: '70px',
+    marginLeft: '20px',
+    width: '60%',
+    backgroundColor: 'transparent',
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'space-between',
+    fontFamily: "lato"
+  },
+  p : {
+    fontSize: '25px',
+    margin: '0px',
+    marginLeft: '10px'
+  }
+}
+
+function App({posts, getAllPosts}) {
+  useEffect(getAllPosts, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Header />
+      <div className="posts" style={styles.posts}>
+        <p style={styles.p}>Popular Posts</p>
+        {posts.map(post => <PostPreviewer key={post.post_id} post={post}/>)}
+      </div>
+
+      <div className="">
+
+      </div>
+    </>
   );
 }
 
-export default App;
+const mapStateToProps = ({postReducer}) => {
+  console.log('state', postReducer);
+  return {
+    posts: postReducer.posts,
+  }
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    getAllPosts: () => {dispatch(getAllPostsAction())},
+    // deletePost: (postId) => {dispatch(deletePostAction(postId))},
+    // updatePost: (post) => {dispatch(updatePostAction(post))},
+    // votePost: (post) => {dispatch(votePostAction(post))}
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
