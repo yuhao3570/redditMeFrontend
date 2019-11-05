@@ -1,0 +1,21 @@
+.container {
+  margin-top: 80px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.postlist {
+  margin-left: 20px;
+  width: 70%;
+  background-color: transparent;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.postlist .post-title {
+  font-Size: 25px;
+  margin: 0px;
+  margin-left: 10px;
+}

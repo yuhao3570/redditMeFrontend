@@ -1,0 +1,31 @@
+.sidebar {
+  width: 30%;
+  margin: 10px;
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;;
+}
+
+.submit-post { 
+  height: 40px;
+  text-align: center;
+  background: #4BA3DF;
+}
+
+.sidebar .about {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+  height: 200px;
+  background: #F5F5F5;
+}
+
+.sidebar .about h3 {
+  margin-top: 0px;
+  height: 30px;
+  background: lightgray;
+}
+
+.sidebar .about h3, p{
+  padding-left: 10px;
+}

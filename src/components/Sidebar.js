@@ -1,12 +1,15 @@
 import React from 'react';
 import '../styles/Sidebar.css';
 
-module.exports = function Sidebar() {
+export default function Sidebar() {
 
   return (
     <div className='sidebar'>
-      <button className='submit-post'>Submit New Post</button>
-
+      <button className='submit-post'>SUBMIT A NEW POST</button>
+      <div className="about">
+        <h3>ABOUT</h3>
+        <p>{"Add later"}</p>
+      </div>
     </div>
   )
 }

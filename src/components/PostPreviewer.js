@@ -20,7 +20,6 @@ export default function PostPreviewer({post}) {
           <span>Comment</span>
         </div>
       </div>
-
     </div>
   )
 }
