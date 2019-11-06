@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import deletePostAction from '../actions/DeletePostAction';
-import updatePostVoteAction from '../actions/UpdateVoteAction';
+import deletePostAction from '../actions/postActions/DeletePostAction';
+import updatePostVoteAction from '../actions/postActions/UpdateVoteAction';
 import '../styles/PostPreviewer.css';
 
 function PostPreviewer({post, deletePostById, changeVote, history}) {

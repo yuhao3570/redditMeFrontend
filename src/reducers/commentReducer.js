@@ -3,7 +3,7 @@ const initState = {
   updating: false
 };
 
-export default function commentsReducer(state = initState, action) {
+export default function commentReducer(state = initState, action) {
   if(action.type === 'GET_POSTS_START'){
     return {
       ...state,

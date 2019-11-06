@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
-import getAllPostsAction from '../actions/GetAllPostsAction';
+import getAllPostsAction from '../actions/postActions/GetAllPostsAction';
 import PostPreviewer from './PostPreviewer';
 import Sidebar from './Sidebar';
 import '../styles/Home.css';

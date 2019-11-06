@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
-import submitPostAction from '../actions/SubmitPostAction';
-import updatePostAction from '../actions/UpdatePost';
+import submitPostAction from '../actions/postActions/SubmitPostAction';
+import updatePostAction from '../actions/postActions/UpdatePost';
 import '../styles/NewPost.css';
 
 const initPost = {

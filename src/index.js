@@ -5,11 +5,11 @@ import App from './App';
 import { createStore, applyMiddleware, combineReducers } from 'redux';
 import thunk from 'redux-thunk';
 import postReducer from './reducers/postReducer';
-import commentsReducer from './reducers/commentsReducer';
+import commentReducer from './reducers/commentReducer';
 import { Provider } from 'react-redux';
 import * as serviceWorker from './serviceWorker';
 
-const rootReducer = combineReducers({postReducer, commentsReducer});
+const rootReducer = combineReducers({postReducer, commentReducer});
 const store = createStore(rootReducer, applyMiddleware(thunk));
 
 ReactDOM.render( 
