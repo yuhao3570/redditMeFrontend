@@ -1,0 +1,38 @@
+.newpost-form {
+  padding: 30px;
+  margin-top: 80px;
+  margin-left: 20px;
+  background: white;
+  width: 600px;
+  height: 250px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.newpost-form label {
+  font-size: 20px;
+}
+
+.newpost-title {
+  height: 70px;
+}
+
+.newpost-url {
+  height: 40px;
+}
+
+.newpost-url, .newpost-title  {
+  width: 500px;
+  background: #FFFFFF;
+}
+
+.newpost-form button {
+  height: 30px;
+  width: 300px;
+  text-align: center;
+  background: #4BA3DF;
+  text-decoration: none;
+  font-size: 20px;
+  color: white;
+}

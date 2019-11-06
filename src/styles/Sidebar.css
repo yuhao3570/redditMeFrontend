@@ -6,10 +6,13 @@
   flex-direction: column;;
 }
 
-.submit-post { 
+.submit-post {
   height: 40px;
   text-align: center;
   background: #4BA3DF;
+  text-decoration: none;
+  font-size: 20px;
+  color: white;
 }
 
 .sidebar .about {

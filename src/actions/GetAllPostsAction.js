@@ -6,9 +6,7 @@ export default function getAllPostsAction() {
       headers: {'Content-Type': 'application/json'}
     })
     let posts = await fetchResult.json();
-
-    console.log("all posts", posts);
-
+    posts.reverse();
     dispatch({
       type: 'GET_POSTS_SUCCESS',
       posts,
