@@ -42,6 +42,22 @@ export default function postReducer(state = initState, action) {
     }
   }
 
+  //update post content 
+  if(action.type === 'UPDATE_POST_SUCCESS'){
+    let tempPosts = [...state.posts];
+    tempPosts = tempPosts.map(post => {
+      if (post.post_id === action.post_id) {
+        post = {...action.type}
+      }
+      return post;
+    })
+    return {
+      ...state,
+      updating: false,
+      posts: [...tempPosts]
+    }
+  }
+
   // vote on post
   if (action.type.includes('VOTE_POST_SUCCESS')) {
     let tempPosts = [...state.posts];

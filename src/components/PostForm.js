@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import submitPostAction from '../actions/SubmitPostAction';
+import updatePostAction from '../actions/UpdatePost';
 import '../styles/NewPost.css';
 
 const initPost = {
@@ -8,12 +9,25 @@ const initPost = {
   url: ''
 }
 
-function NewPost({ submitPost, history}) {
+function PostForm({allPosts, submitPost, updatePost, history, match}) {
   const [post, setPost] = useState(initPost);
+  const post_id = parseInt(match.params.post_id);
+
+  useEffect(()=> {
+    if(post_id !== undefined){
+      setPost({
+        ...allPosts.find(post => post.post_id === post_id)
+      });
+    }
+  }, [allPosts, post_id])
 
   const handlePostSubmit = () => {
     if(validated(post)){
-      submitPost(post);
+      if(post_id !== undefined){
+        updatePost(post);
+      }else{
+        submitPost(post);
+      }
       setPost(initPost);
       history.push("/");
     }else {
@@ -63,10 +77,18 @@ const validated = (post) => {
   return post.title !== '';
 }
 
-const mapDispatchToProps = (dispatch) => {
+const mapStateToProps = ({postReducer}) => {
   return {
-    submitPost : (post) => {dispatch(submitPostAction(post))}
+    allPosts: postReducer.posts,
   }
 }
 
-export default connect(null, mapDispatchToProps)(NewPost);
+const mapDispatchToProps = (dispatch) => {
+  return {
+    submitPost: (post) => {dispatch(submitPostAction(post))},
+    updatePost: (post) => {dispatch(updatePostAction(post))}
+
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(PostForm);

@@ -13,7 +13,8 @@ function Home({posts, getAllPosts, history} ) {
           <p className="post-title">Popular Posts</p>
           {posts.map(post => <PostPreviewer 
             key={post.post_id} 
-            post={post}/>)
+            post={post}
+            history={history}/>)
           }
         </div>
         <Sidebar history={history}/>
@@ -30,9 +31,6 @@ const mapStateToProps = ({postReducer}) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     getAllPosts: () => {dispatch(getAllPostsAction())},
-    // deletePost: (postId) => {dispatch(deletePostAction(postId))},
-    // updatePost: (post) => {dispatch(updatePostAction(post))},
-    // votePost: (post) => {dispatch(votePostAction(post))}
   }
 }
 

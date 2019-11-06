@@ -6,7 +6,7 @@ import {
 } from "react-router-dom";
 import Header from './components/Header';
 import Home from './components/Home';
-import NewPost from './components/NewPost';
+import PostForm from './components/PostForm';
 // import PostDetail from './components/PostDetail';
 
 export default function App() {
@@ -16,7 +16,8 @@ export default function App() {
       <Router>
         <Switch>
           <Route path="/" exact component={Home}/>
-          <Route path="/new" component={NewPost}/>
+          <Route path="/new" component={PostForm}/>
+          <Route path="/edit/:post_id" component={PostForm}/>
         </Switch>
       </Router>
     </>

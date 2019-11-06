@@ -4,19 +4,30 @@ import deletePostAction from '../actions/DeletePostAction';
 import updatePostVoteAction from '../actions/UpdateVoteAction';
 import '../styles/PostPreviewer.css';
 
-function PostPreviewer({post, deletePostById, changeVote}) {
+function PostPreviewer({post, deletePostById, changeVote, history}) {
   let timestamp = Math.floor(Date.now()/60000) - post.timeUpdated;
 
-  const handleModifyPost = () => {
-    console.log('modify post clicked');
+  const navToModifyPostForm = (event) => {
+    event.preventDefault();
+    history.push(`/edit/${post.post_id}`);
   }
 
   const handleVote = (event) => {
+    event.preventDefault();
     changeVote(post.post_id, event.target.alt);
   }
 
+  const navToPostDetail = (event) => {
+    event.preventDefault();
+    // history.push(`/detail/${post.post_id}`);
+  }
+
   return (
-    <div className="post-item" id={post.post_id}>
+    <div 
+      className="post-item" 
+      id={post.post_id}
+      onClick={navToPostDetail}
+    >
       <div className='vote-score'>
         <img 
           alt="UPVOTE" 
@@ -38,7 +49,7 @@ function PostPreviewer({post, deletePostById, changeVote}) {
             <strong>{' ' + timestamp + ' '}</strong> minutes ago by 
             <strong>{' ' + post.owner_id  + ' '}</strong>
           </p>
-          <span onClick={handleModifyPost}>Modify</span>
+          <span history={history} onClick={navToModifyPostForm}>Modify</span>
           <span onClick={() => deletePostById(post.post_id)}>Remove</span>
           <span>Comment</span>
         </div>
