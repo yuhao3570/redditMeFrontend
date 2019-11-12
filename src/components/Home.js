@@ -17,7 +17,7 @@ function Home({posts, getAllPosts, history} ) {
             history={history}/>)
           }
         </div>
-        <Sidebar history={history}/>
+        <Sidebar history={history} type="POST"/>
       </div>
   );
 }

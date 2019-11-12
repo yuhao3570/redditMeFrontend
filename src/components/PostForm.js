@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import submitPostAction from '../actions/postActions/SubmitPostAction';
@@ -23,7 +24,7 @@ function PostForm({allPosts, submitPost, updatePost, history, match}) {
 
   const handlePostSubmit = () => {
     if(validated(post)){
-      if(post_id !== undefined){
+      if(!isNaN(post_id )){
         updatePost(post);
       }else{
         submitPost(post);

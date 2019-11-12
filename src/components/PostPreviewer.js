@@ -6,7 +6,7 @@ import '../styles/PostPreviewer.css';
 
 function PostPreviewer({post, deletePostById, changeVote, history}) {
   let timestamp = Math.floor(Date.now()/60000) - post.timeUpdated;
-
+  const actionId = "actions-" + post.post_id;
   const navToModifyPostForm = (event) => {
     event.preventDefault();
     history.push(`/edit/${post.post_id}`);
@@ -17,16 +17,20 @@ function PostPreviewer({post, deletePostById, changeVote, history}) {
     changeVote(post.post_id, event.target.alt);
   }
 
+  const handleRemovePost = (event) => {
+    event.preventDefault();
+    deletePostById(post.post_id);
+  }
+
   const navToPostDetail = (event) => {
     event.preventDefault();
-    // history.push(`/detail/${post.post_id}`);
+    history.push(`/detail/${post.post_id}/comments`);
   }
 
   return (
     <div 
       className="post-item" 
       id={post.post_id}
-      onClick={navToPostDetail}
     >
       <div className='vote-score'>
         <img 
@@ -43,15 +47,19 @@ function PostPreviewer({post, deletePostById, changeVote, history}) {
       </div>
       
       <div className="post">
-        <h2>{post.title}</h2>
+        <h2 
+          onClick={navToPostDetail}
+        >{post.title}</h2>
         <div className="post-footer">
           <p>Submitted 
             <strong>{' ' + timestamp + ' '}</strong> minutes ago by 
             <strong>{' ' + post.owner_id  + ' '}</strong>
           </p>
-          <span history={history} onClick={navToModifyPostForm}>Modify</span>
-          <span onClick={() => deletePostById(post.post_id)}>Remove</span>
-          <span>Comment</span>
+          <div className="actions" id={actionId}>
+            <span history={history} onClick={navToModifyPostForm}>Modify</span>
+            <span onClick={handleRemovePost}>Remove</span>
+            <span>Comment</span>
+          </div>
         </div>
       </div>
     </div>

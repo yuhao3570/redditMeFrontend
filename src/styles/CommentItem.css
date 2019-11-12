@@ -1,0 +1,51 @@
+.comment-item {
+  width: 90%;
+  height: 150px;
+  display: flex; 
+  flex-direction: row;
+  background: lightgray;
+  margin-bottom: 10px;;
+}
+
+.comment-score {
+  padding-top:5px;
+  margin-left: 5px;
+  background-color: #F8F9FA;
+  width: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.comment-score img{
+  width: 15px;
+  height: 15px;
+  padding: 5px;
+}
+
+.comment-score img:hover{
+  width: 15px;
+  height: 15px;
+  background-color: lightgray;
+}
+
+.comment-item .comment {
+  flex-grow: 1;
+  height: 100%;
+  margin-left: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.comment-item .comment p {
+  font-size: 30px;
+  height: 80px;
+}
+
+.comment-footer{
+  margin-bottom: auto;
+  display: flex;
+  align-items: space-between;
+  font-size: 10px;
+}
